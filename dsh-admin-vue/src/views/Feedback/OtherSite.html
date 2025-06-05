@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>东南大学出版社官方抖音号</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #fff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        border-radius: 8px;
+        width: 100%;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333;
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+
+      .param-title {
+        font-size: 20px;
+        /* font-weight: bold; */
+        margin-bottom: 60px;
+      }
+
+      .param-info {
+        padding: 10px;
+        border-radius: 6px;
+        font-size: 16px;
+        color: #333;
+        word-wrap: break-word;
+        margin-bottom: 20px;
+        max-height: 100%;
+        overflow-y: auto;
+        line-height: 1.4;
+      }
+
+      button {
+        background-color: #18a1e8;
+        color: white;
+        font-size: 20px;
+        border: none;
+        padding: 5px 20px;
+        border-radius: 5px;
+        height: 45px;
+        cursor: pointer;
+        width: 90%;
+        transition: background-color 0.3s ease;
+      }
+
+      .copy-message {
+        margin-top: 10px;
+        color: #18a1e8;
+        font-size: 14px;
+        display: none;
+      }
+
+      /* 响应式设计 */
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 20px;
+        }
+
+        .container {
+          padding: 15px;
+        }
+
+        button {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="param-title" id="paramTitle">东南大学出版社官方抖音号</h2>
+      <div class="param-info" id="paramInfo">
+        <p>正在加载参数...</p>
+      </div>
+      <button onclick="copyToClipboard()">复制信息</button>
+      <p class="copy-message" id="copyMessage">复制成功</p>
+    </div>
+
+    <script>
+      // 获取 URL 参数
+      function getQueryParams() {
+        const urlParams = new URLSearchParams(window.location.search)
+        let params,
+          title = ''
+        params = `<strong>${urlParams.get('param')}</strong><br>`
+        // for (const [key, value] of urlParams.entries()) {
+        //   params += `<strong>${value}</strong><br>`
+        // }
+        title = urlParams.get('title')
+        if (title) {
+          title += `<strong>${title}</strong><br>`
+          document.getElementById('paramTitle').innerHTML = title
+        }
+        return params || '没有参数传递'
+      }
+
+      // 更新页面上的参数信息
+      document.getElementById('paramInfo').innerHTML = getQueryParams()
+
+      // 复制到剪贴板
+      function copyToClipboard() {
+        const paramText = document.getElementById('paramInfo').innerText
+        const textArea = document.createElement('textarea')
+        textArea.value = paramText
+        document.body.appendChild(textArea)
+        textArea.select()
+        document.execCommand('copy')
+        document.body.removeChild(textArea)
+
+        // 显示复制成功的提示信息
+        const copyMessage = document.getElementById('copyMessage')
+        copyMessage.style.display = 'block'
+        setTimeout(() => {
+          copyMessage.style.display = 'none'
+        }, 1000)
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nh.dsh.admin.mapper.ForumMapper">
+
+    <select id="getPage" resultType="com.nh.dsh.admin.model.vo.ForumVO">
+        select
+        f.id,
+        f.user_id as userId,
+        f.name,
+        f.is_top,
+        f.course_link as courseLink,
+        f.book_id as bookId,
+        f.price,
+        f.writer_introduction as writerIntroduction,
+        f.voice_introduction as voiceIntroduction,
+        f.cover,
+        c.name as categoryName,
+        f.avatar,
+        f.create_time as createTime,
+        wu.wx_name as username,
+        b.book_name as bookName
+        from forum f
+        left join wuser wu on wu.id = f.user_id
+        left join book b on b.id = f.book_id
+        left join category c on c.id = b.classification_id
+        where f.delete_flag = 0
+        <if test="query.forumName != null and query.forumName != ''  ">
+            and f.name like concat('%',#{query.forumName},'%')
+        </if>
+        <if test="query.username != null and query.username != ''  ">
+            and wu.wx_name like concat('%',#{query.username},'%')
+        </if>
+        <if test="publisherList != null and !publisherList.isEmpty() ">
+            and b.publisher_id in
+            <foreach collection="publisherList" item="item" index="index" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        order by f.is_top desc, f.create_time desc
+    </select>
+
+</mapper>

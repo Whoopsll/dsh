@@ -1,0 +1,15 @@
+package com.nh.dsh.admin.model.query;
+
+import com.nh.dsh.admin.common.model.Query;
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
+
+@Data
+@Schema(description = "审核服务查询")
+public class AuditQuery extends Query {
+
+    @Schema(description = "服务名称")
+    String name = "";
+
+}

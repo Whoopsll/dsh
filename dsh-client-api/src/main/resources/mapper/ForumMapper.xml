@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nh.dsh.client.mapper.ForumMapper">
+
+    <select id="selectByPage" resultType="com.nh.dsh.client.model.entity.ForumEntity">
+        select * from forum f
+        left join book b on f.book_id = b.id
+        where f.delete_flag = 0
+        <if test="params.categoryId != null">
+            and b.classification_id = #{params.categoryId}
+        </if>
+        <if test="params.keyword != null and params.keyword != ''">
+            and (f.name like CONCAT('%', #{params.keyword}, '%') or f.writer_introduction like CONCAT('%', #{params.keyword}, '%'))
+        </if>
+        order by f.create_time desc
+    </select>
+</mapper>

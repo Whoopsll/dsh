@@ -1,0 +1,82 @@
+server:
+  port: 10000
+  servlet:
+    context-path: /dsh-client-api
+  max-http-request-header-size: 10485760
+
+spring:
+  application:
+    name: dsh-client-api
+  profiles:
+    active: dev
+#    active: prod
+  mvc:
+    path-match:
+      matching-strategy: ant_path_matcher #??
+  servlet:
+    multipart:
+      max-file-size: 10485760 # 上传文件大小限定为10M
+      max-request-size: 10485760
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: com.nh.dsh.*.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: true # ????????????(since 3.3.0,????????????2)
+      logic-delete-value: 1 # ??????(??? 1)
+      logic-not-delete-value: 0 # ??????(??? 0)
+
+logging:
+  config: classpath:log/logback-spring.xml
+
+# springdoc-openapi????
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.nh.dsh.client.controller
+# knife4j
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+  basic:
+    enable: true    #??????
+    username: admin   #???
+    password: 123456  #??
+
+minio:
+  host: http://8.153.16.66:9000/
+  access-key: minioadmin
+  secret-key: minioadmin
+  bucket: dsh
+
+auth:
+  valid_urls:
+    - /auth/logout
+    - /user/**
+    - /forum/followedPage
+    - /forum/followed
+    - /forum/detail
+    - /forum/comment/**
+
+code:
+  secret: 2253
+
+wechat:
+  appId: wx0055deef26d951ff
+  secret: 02cc1aef64542aba6e45e8c2753c4ba4
+  # 测试账号
+#  appId: wxd9c90eb46ed3c5e5
+#  secret: f793f2521aa17b5ca4033032ca0655e5

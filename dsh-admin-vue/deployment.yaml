@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dsh-admin
+  namespace: test
+  labels:
+    app: dsh-admin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dsh-admin
+  template:
+    metadata:
+      labels:
+        app: dsh-admin
+    spec:
+      imagePullSecrets:
+        - name: regsecret
+      containers:
+        - name: dsh-admin
+          image: __IMAGE__
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dsh-admin-svc
+  namespace: test
+spec:
+  selector: #通过下面标签(label)来选择Pod
+    app: dsh-admin
+  ports:
+    - name: http
+      targetPort: 80
+      port: 80

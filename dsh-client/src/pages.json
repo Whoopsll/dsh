@@ -1,0 +1,199 @@
+{
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+    }
+  },
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "读书汇"
+      }
+    },
+    {
+      "path": "pages/follow/follow",
+      "style": {
+         "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "读书汇"
+      }
+    },
+    {
+      "path": "pages/forum/forum",
+      "style": {
+         "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "读书汇"
+      }
+    },
+    {
+      "path": "pages/profile/profile",
+      "style": {
+         "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "读书汇"
+      }
+    },
+    {
+      "path": "pages/login/login",
+      "style": {
+         "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "登录"
+      }
+    },
+    {
+      "path": "pages/login/login-temp",
+      "style": {
+         "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "微信登录"
+      }
+    },
+    {
+      "path": "pages/search/search",
+      "style": {
+         "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "搜索"
+      }
+    },
+    {
+      "path": "pages/forum/forumDetail",
+      "style": {
+         "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/forum/allForum",
+      "style": {
+         "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "全部书籍"
+      }
+    },
+    {
+      "path": "pages/forum/CommentDetail",
+      "style": {
+         "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "评论详情"
+      }
+    },
+    {
+      "path": "pages/profile/userComment",
+      "style": {
+         "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "评论列表"
+      }
+    },
+    {
+      "path": "pages/profile/feedback",
+      "style": {
+         "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "意见反馈"
+      }
+    },
+    {
+      "path": "pages/profile/question",
+      "style": {
+         "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "问答"
+      }
+    },
+    {
+      "path": "pages/exchange/exchange",
+      "style": {
+         "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "资源校验"
+      }
+    },
+    {
+      "path": "pages/scanCode/scanCode",
+      "style": {
+         "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "资源兑换"
+      }
+    },
+    {
+      "path": "pages/exchange/exchange-temp",
+      "style": {
+         "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "微信验证"
+      }
+    },
+    {
+      "path": "pages/book/resource",
+      "style": {
+         "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "资源验证"
+      }
+    },
+    {
+      "path" : "components/SafeAreaWrapper/SafeAreaWrapper",
+      "style" :
+      {
+        "navigationBarTitleText" : "",
+        "enablePullDownRefresh" : false
+      }
+    },
+    {
+      "path" : "pages/initProfile/initProfile",
+      "style" :
+      {
+         "disableScroll": true,
+        "navigationStyle": "custom",
+        "navigationBarTitleText" : "",
+        "enablePullDownRefresh" : false
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#1dc09d",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "style": {
+          "boxShadow": "0px -2px 10px rgba(0,0,0,0.2)"
+        },
+    "list": [
+      {
+        "text": "读书汇",
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tabs/icon_index_unselect.png",
+        "selectedIconPath": "static/tabs/icon_index_selected.png"
+      },
+      {
+        "text": "关注",
+        "pagePath": "pages/follow/follow",
+        "iconPath": "static/tabs/icon_follow_unselect.png",
+        "selectedIconPath": "static/tabs/icon_follow_selected.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/profile/profile",
+        "iconPath": "static/tabs/icon_mine_unselect.png",
+        "selectedIconPath": "static/tabs/icon_mine_selected.png"
+      }
+    ]
+  }
+}
